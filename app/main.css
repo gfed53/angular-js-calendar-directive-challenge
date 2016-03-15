@@ -12,3 +12,11 @@
 p {
 	margin: 0 0 5em 0;
 }
+
+form {
+	display: block;
+}
+
+input {
+	display: inline-block;
+}
