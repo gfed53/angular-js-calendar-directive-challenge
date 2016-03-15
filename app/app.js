@@ -11,6 +11,7 @@ angular.module('calendarDemoApp', [])
 			var testDate = new Date();
 			var testCalendar = CalendarRange.getMonthlyRange(testDate);
 			console.log(testCalendar.days);
+			$scope.days = testCalendar.days;
 		}
 	}
 })
