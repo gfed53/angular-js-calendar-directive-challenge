@@ -9,15 +9,9 @@ angular.module('calendarDemoApp', [])
 		transclude: true,
 		templateUrl: "template.html",
 		scope: true,
-		controller: 'SelectController',
+		// controller: 'SelectController',
 		link: function(scope, element, attrs){
-			// console.log(dateConstruct());
-			var dateInView = moment()._d;
-			console.log(dateInView);
-			var calendarInView = CalendarRange.getMonthlyRange(dateInView);
-			// console.log(testCalendar);
-			console.log(calendarInView.days);
-			scope.days = calendarInView.days;
+			console.log("Link function running");
 		}
 	}
 })
@@ -26,17 +20,18 @@ function SelectController() {
 	var vm = this;
 	vm.submit = submit;
 	vm.dateConstruct = dateConstruct;
+	vm.days = CalendarRange.getMonthlyRange(moment()._d).days;
 
 	function submit(){
 		console.log(dateConstruct());
-		dateConstruct();
-
+		var days = dateConstruct();
+		vm.days = CalendarRange.getMonthlyRange(days).days;
 		
 	}
 
 	function dateConstruct(){
 		var dateString = vm.year + " " + vm.month + " 01",
-		date = moment(dateString, "YYYY MMM DD");
+		date = moment(dateString, "YYYY MMM DD")._d;
 
 		console.log(date);
 		return date;

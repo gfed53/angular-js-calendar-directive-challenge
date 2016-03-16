@@ -4,12 +4,12 @@
 	<title>Calendar Directive Challenge</title>
 	<link rel="stylesheet" type="text/css" href="./main.css" />
 </head>
-<body>
+<body ng-controller="SelectController as select">
 
-	<form ng-controller="SelectController as select" action="">
+	<form action="">
 		<input type="text" ng-model="select.month" placeholder="Month" name="" id="">
 		<input type="text" ng-model="select.year" placeholder="Year" name="" id="">
-		<input type="button" ng-click="select.dateConstruct()" value="Submit">
+		<input type="button" ng-click="select.submit()" value="Submit">
 	</form>
 
 	<my-calendar></my-calendar>
