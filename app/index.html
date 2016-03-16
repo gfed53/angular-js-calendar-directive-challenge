@@ -9,12 +9,13 @@
 	<form ng-controller="SelectController as select" action="">
 		<input type="text" ng-model="select.month" placeholder="Month" name="" id="">
 		<input type="text" ng-model="select.year" placeholder="Year" name="" id="">
-		<input type="button" ng-click="select.submit()" value="Submit">
+		<input type="button" ng-click="select.dateConstruct()" value="Submit">
 	</form>
 
 	<my-calendar></my-calendar>
 
 	<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+	<script src="../node_modules/moment/moment.js"></script>
 	<script type="text/javascript" src="./utilities/calendar-range/calendarRange.js"></script>
 	<script type="text/javascript" src="./app.js"></script>
 </body>

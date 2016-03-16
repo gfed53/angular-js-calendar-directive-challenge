@@ -4,17 +4,20 @@ angular.module('calendarDemoApp', [])
 .controller('SelectController', SelectController)
 .directive('myCalendar', function(){
 	return {
+		// require: ^?SelectController
 		restrict: "E",
 		transclude: true,
 		templateUrl: "template.html",
 		scope: true,
-		controller: function($scope, $element, $attrs){
-			var testDate = new Date();
-			console.log(testDate);
-			var testCalendar = CalendarRange.getMonthlyRange(testDate);
-			console.log(testCalendar);
-			console.log(testCalendar.days);
-			$scope.days = testCalendar.days;
+		controller: 'SelectController',
+		link: function(scope, element, attrs){
+			// console.log(dateConstruct());
+			var dateInView = moment()._d;
+			console.log(dateInView);
+			var calendarInView = CalendarRange.getMonthlyRange(dateInView);
+			// console.log(testCalendar);
+			console.log(calendarInView.days);
+			scope.days = calendarInView.days;
 		}
 	}
 })
@@ -22,14 +25,20 @@ angular.module('calendarDemoApp', [])
 function SelectController() {
 	var vm = this;
 	vm.submit = submit;
+	vm.dateConstruct = dateConstruct;
 
 	function submit(){
 		console.log(dateConstruct());
+		dateConstruct();
+
+		
 	}
 
 	function dateConstruct(){
-		var date = vm.month + " " + vm.year;
-		// console.log(date);
+		var dateString = vm.year + " " + vm.month + " 01",
+		date = moment(dateString, "YYYY MMM DD");
+
+		console.log(date);
 		return date;
 	}
 };
