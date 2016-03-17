@@ -9,6 +9,10 @@
 	display: inline-block;
 }
 
+.shaded {
+	background-color: lightgrey;
+}
+
 p {
 	margin: 0 0 5em 0;
 }
