@@ -6,7 +6,7 @@ angular.module('calendarDemoApp', [])
 	return {
 		// require: ^?SelectController
 		restrict: "E",
-		transclude: true,
+		// transclude: true,
 		templateUrl: "template.html",
 		scope: true,
 		// controller: 'SelectController',
