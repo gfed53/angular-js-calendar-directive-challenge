@@ -8,13 +8,14 @@ angular.module('calendarDemoApp', [])
 		restrict: "E",
 		// transclude: true,
 		templateUrl: "template.html",
-		scope: true,
+		scope: true
 		// controller: 'SelectController',
-		link: function(scope, element, attrs){
-			// console.log(scope.days);
-			// scope.days = vm.days;
-			// console.log(scope.days);
-		}
+		// link: function(scope, element, attrs){
+
+		// 	console.log(scope); 
+		// 	// scope.days = vm.days;
+		// 	// console.log(scope.days);
+		// }
 	}
 })
 
@@ -33,8 +34,10 @@ function SelectController() {
 		vm.range = CalendarRange.getMonthlyRange(date);
 		console.log(vm.range);
 		vm.days = vm.range.days;
-		console.log(Date.parse(vm.range.start));
-		console.log(Date.parse(vm.range.end));
+		console.log(vm.range.start);
+		var foo = moment(vm.range.start);
+		console.log(foo);
+		console.log(foo.valueOf());
 		// caStyleCalendar(vm.range);
 		
 	}
@@ -48,9 +51,9 @@ function SelectController() {
 	}
 
 	function needStyling(item){
-		var start = Date.parse(vm.range.start),
-		end = Date.parse(vm.range.end);
-		if(Date.parse(item.date)<start || Date.parse(item.date)>end) {
+		var start = moment(vm.range.start),
+		end = moment(vm.range.end);
+		if(moment(item.date).isBefore(start) || moment(item.date).isAfter(end)) {
 				return true;
 			}
 	}
