@@ -1,7 +1,7 @@
 angular.module('calendarDemoApp', [])
 
 // your controller and directive code go here
-.controller('SelectController', [SelectController])
+.controller('SelectController', ['ALL_MONTHS', SelectController])
 .directive('myCalendar', function(){
 	return {
 		// require: ^?SelectController
@@ -19,7 +19,7 @@ angular.module('calendarDemoApp', [])
 	}
 })
 
-function SelectController() {
+function SelectController(ALL_MONTHS) {
 	var vm = this;
 	vm.submit = submit;
 	vm.dateConstruct = dateConstruct;
@@ -27,19 +27,19 @@ function SelectController() {
 	vm.days = vm.range.days;
 	vm.start = vm.range.start;
 	vm.needStyling = needStyling;
+	vm.monthChoices = ALL_MONTHS;
+	console.log(vm.monthChoices);
 
 	function submit(){
 		// console.log(dateConstruct());
 		var date = dateConstruct();
-		vm.range = CalendarRange.getMonthlyRange(date);
-		console.log(vm.range);
-		vm.days = vm.range.days;
-		console.log(vm.range.start);
-		var foo = moment(vm.range.start);
-		console.log(foo);
-		console.log(foo.valueOf());
-		// caStyleCalendar(vm.range);
-		
+		console.log(date);
+		// if(date==="Invalid Date"){
+		// 	alert("Please input a valid month and year 20 years before or after the current year!");
+		// } else{
+			vm.range = CalendarRange.getMonthlyRange(date);
+			vm.days = vm.range.days;
+		// }		
 	}
 
 	function dateConstruct(){

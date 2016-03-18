@@ -1,9 +1,11 @@
 angular.module('calendarDemoApp')
+.constant('ALL_MONTHS', ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
 
 // Not in use for now
-.factory('caDateConstruct', [caDateConstruct])
-.factory('caRange', ['caDateConstruct', caSubmit])
+// .factory('caDateConstruct', [caDateConstruct])
+// .factory('caRange', ['caDateConstruct', caSubmit])
 // .factory('needStyling', [needStyling])
+.factory('caIsValid', [caIsValid])
 
 function caDateConstruct(){
 	return function(year, month){
@@ -23,5 +25,14 @@ function caRange(caDateConstruct){
 			range: range,
 			days: range.days
 		}
+	}
+}
+
+function caIsValid() {
+	return function(date){
+		console.log("working");
+		if(date){
+			return true
+		} 
 	}
 }
