@@ -15,9 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'node_modules/jquery/dist/jquery.min.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/node_modules/moment/moment.js',
       'node_modules/moment/moment.js',
       'app/*.js',
       'app/*.html',
@@ -73,6 +73,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   })
 }

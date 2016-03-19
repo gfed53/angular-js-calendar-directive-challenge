@@ -4,18 +4,15 @@ angular.module('calendarDemoApp', [])
 .controller('SelectController', ['ALL_MONTHS', SelectController])
 .directive('myCalendar', function(){
 	return {
-		// require: ^?SelectController
 		restrict: "E",
-		// transclude: true,
 		templateUrl: "template.html",
-		scope: true
-		// controller: 'SelectController',
-		// link: function(scope, element, attrs){
+		scope: true,
+		link: function(scope, element, attrs){
 
-		// 	console.log(scope); 
-		// 	// scope.days = vm.days;
-		// 	// console.log(scope.days);
-		// }
+			console.log(scope); 
+			// scope.days = vm.days;
+			// console.log(scope.days);
+		}
 	}
 })
 
@@ -38,6 +35,7 @@ function SelectController(ALL_MONTHS) {
 		// 	alert("Please input a valid month and year 20 years before or after the current year!");
 		// } else{
 			vm.range = CalendarRange.getMonthlyRange(date);
+			console.log(vm.range);
 			vm.days = vm.range.days;
 		// }		
 	}
@@ -45,7 +43,6 @@ function SelectController(ALL_MONTHS) {
 	function dateConstruct(){
 		var dateString = vm.year + " " + vm.month + " 01",
 		date = moment(dateString, "YYYY MMM DD")._d;
-
 		console.log(date);
 		return date;
 	}
