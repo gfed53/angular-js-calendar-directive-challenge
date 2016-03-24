@@ -1,3 +1,8 @@
+* {
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 0.015em;
+}
+
 .calendar-container {
 	width: 100%;
 }
@@ -13,12 +18,27 @@
 	background-color: lightgrey;
 }
 
-p {
+h1 {
+	text-align: center;
+	font-size: 3.5em;
+}
+
+.day {
 	margin: 0 0 5em 0;
+}
+
+#credit {
+	text-align: center;
+	font-weight: bold;
 }
 
 form {
 	display: block;
+	margin-bottom: 1.5em;
+}
+
+input {
+	font-size: 0.8em;
 }
 
 input {

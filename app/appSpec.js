@@ -39,6 +39,7 @@ describe('calendarDemoApp', function(){
 			expect(container.find("div[class='shaded']")).toBeTruthy();
 			expect(element.find("p")).toBeTruthy();
 			expect(element.find(".calendar-day")).toBeTruthy();
+			expect(element.find(".calendar-day").length).toBe(35);
 		});
 
 	// 	it("should render the dates outside of the focus month as shaded")

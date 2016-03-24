@@ -2,14 +2,15 @@
 <html ng-app="calendarDemoApp">
 <head>
 	<title>Calendar Directive Challenge</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="./main.css" />
 </head>
 <body ng-controller="SelectController as select">
-
+	<h1>Calendar App</h1>
+	<p id="credit">By Greg Federico. 2016</p>
 	<form action="">
 		<select ng-options="month for month in select.monthChoices" ng-model="select.month">
 		</select>
-		<!-- <input type="text" ng-model="select.month" placeholder="Month" name="" id=""> -->
 		<input type="text" ng-model="select.year" placeholder="Year" name="" id="">
 		<input type="button" ng-click="select.submit()" value="Submit">
 	</form>

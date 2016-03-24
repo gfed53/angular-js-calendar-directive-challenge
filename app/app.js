@@ -25,19 +25,15 @@ function SelectController(ALL_MONTHS) {
 	vm.start = vm.range.start;
 	vm.needStyling = needStyling;
 	vm.monthChoices = ALL_MONTHS;
-	console.log(vm.monthChoices);
+	console.log(vm);
 
 	function submit(){
 		// console.log(dateConstruct());
 		var date = dateConstruct();
 		console.log(date);
-		// if(date==="Invalid Date"){
-		// 	alert("Please input a valid month and year 20 years before or after the current year!");
-		// } else{
-			vm.range = CalendarRange.getMonthlyRange(date);
-			console.log(vm.range);
-			vm.days = vm.range.days;
-		// }		
+		vm.range = CalendarRange.getMonthlyRange(date);
+		console.log(vm.range);
+		vm.days = vm.range.days;		
 	}
 
 	function dateConstruct(){
