@@ -3,6 +3,10 @@
 	letter-spacing: 0.015em;
 }
 
+body {
+	text-align: center;
+}
+
 .calendar-container {
 	width: 100%;
 }
@@ -12,6 +16,7 @@
 	height: 20%;
 	border: 1px solid grey;
 	display: inline-block;
+	text-align: left;
 }
 
 .shaded {

@@ -1,17 +1,6 @@
 describe('calendarDemoApp', function(){
-	// var scope,
-	// 	element,
-	// 	compiled,
-	// 	html
 	beforeEach(module("calendarDemoApp"));
 	beforeEach(module('template.html'));
-	// beforeEach(inject(function($rootScope, $compile){
-		// 	html = "<my-calendar></my-calendar>";
-		// 	scope = $rootScope.$new();
-		// 	compiled = $compile(html)
-		// 	element = compiled(scope);
-		// 	scope.$digest();
-		// }));
 
 	describe('myCalendar', function(){
 		var scope,
@@ -23,26 +12,18 @@ describe('calendarDemoApp', function(){
 		beforeEach(inject(function($rootScope, $compile){
 			html = "<my-calendar></my-calendar>";
 			scope = $rootScope.$new();
-			// vm = $controller('SelectController', {
-			// 	$scope: scope
-			// })
 			compiled = $compile(html);
 			element = compiled(scope);
 			scope.$digest();
 		}));
 
 		it("should render the element correctly", function(){
-			// vm = element.data('select');
-			// vm.range = CalendarRange.getMonthlyRange();
-			// vm.days = vm.range.days;
 			var container = element.find("div[class='calendar-container']");
 			expect(container.find("div[class='shaded']")).toBeTruthy();
 			expect(element.find("p")).toBeTruthy();
 			expect(element.find(".calendar-day")).toBeTruthy();
 			expect(element.find(".calendar-day").length).toBe(35);
 		});
-
-	// 	it("should render the dates outside of the focus month as shaded")
 	});
 
 	describe('SelectController', function(){
